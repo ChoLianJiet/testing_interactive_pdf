@@ -24,9 +24,9 @@ export default function Home() {
     return (
       <>
         <container className={styles.main}>
-          <h1>{user.name}</h1>
+          {/* <h1>{user.name}</h1>
           <h3>{user.email}</h3>
-          {user.profilePic? <image src={user.profilePic} height={50} width={50}></image> : <p>No Profile Picture</p>}
+          {user.profilePic? <image src={user.profilePic} height={50} width={50}></image> : <p>No Profile Picture</p>} */}
           {/* <WriteToCloudFirestore />
           <ReadImageWithData />
           <Counter id={user.id}/> */}
