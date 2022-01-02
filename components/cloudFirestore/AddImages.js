@@ -346,7 +346,7 @@ function AddImages () {
                         }}>
                         <div>
                             {images.length != 0?
-                                <Image className={styles['add-image']} src={typeof images[imageIndex].image == 'string'? images[imageIndex].image : URL.createObjectURL(images[imageIndex].image)} alt="snowball" id="snowball" style={{'object-fit':'contain'}}/> :
+                                <img className={styles['add-image']} src={typeof images[imageIndex].image == 'string'? images[imageIndex].image : URL.createObjectURL(images[imageIndex].image)} alt="snowball" id="snowball" style={{'object-fit':'contain'}}/> :
                                 <div className={styles['add-image']} style={{'textAlign': 'center'}}>No Image</div>}
                             {images.length == 0? 
                                 <></> : 
