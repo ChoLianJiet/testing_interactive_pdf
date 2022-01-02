@@ -20,6 +20,7 @@ function GetSinglePumpSeries ({context}) {
     const [editState,setEditState] = useState(false)
     const [numPages, setNumPages] = useState(null)
     const [pageNumber, setPageNumber] = useState(1)
+    const [hoveredDraggableId,setHoveredDraggableId] = useState(null)
     const router = useRouter()
     console.log(router.query)
 
@@ -88,6 +89,14 @@ function GetSinglePumpSeries ({context}) {
       })
     }
 
+    function onHover(draggable){
+        setHoveredDraggableId(draggable.id)
+    }
+
+    function onExit(){
+        setHoveredDraggableId(null)
+    }
+
     return data.length == 0?
         <>Series does not exists</> :
         (
@@ -116,7 +125,7 @@ function GetSinglePumpSeries ({context}) {
                                 'No Data' : 
                                 <table style={{'flex':'1'}} className={styles.specifications}>
                                     {selectedPartNumber.images[0].data.map((draggable,index)=>{
-                                        return <tr style={{'height':'50px'}} key={draggable.image}>
+                                        return <tr style={{'height':'50px','backgroundColor': hoveredDraggableId? hoveredDraggableId == draggable.id? '#ddd' : index % 2 == 0? '#f2f2f2' : 'white' : index % 2 == 0? '#f2f2f2' : 'white' }} key={draggable.id} onMouseEnter={()=>{onHover(draggable)}} onMouseLeave={()=>{onExit()}}>
                                             <td>
                                                 <div style={{display:'flex',flexDirection: "row"}}>
                                                     <>{index + 1}) </>
@@ -149,11 +158,11 @@ function GetSinglePumpSeries ({context}) {
                             }} >
                             {selectedPartNumber.images.length != 0?
                                 <div>
-                                    <Image className={styles['add-image']} src={selectedPartNumber.images[0].image} style={{'object-fit':'contain'}}/> 
+                                    <img className={styles['add-image']} src={selectedPartNumber.images[0].image} style={{'object-fit':'contain'}}/> 
                                     {selectedPartNumber.images.length == 0? 
                                         <></> : 
                                         selectedPartNumber.images[0].data.map((draggable,index)=>{
-                                            return <container key={draggable.image} style={{'top': draggable.y,'left': draggable.x,'cursor':'click','paddingTop': '5px','paddingBottom':'5px','paddingLeft':'10px','paddingRight':'10px','borderRadius': '20px','position':'absolute','color': 'green', 'backgroundColor': 'white', 'border': '1px solid black'}}>{index + 1}</container>
+                                            return <container onMouseEnter={()=>{onHover(draggable)}} onMouseLeave={()=>{onExit()}} key={draggable.image} style={{'top': draggable.y,'left': draggable.x,'cursor':'none','paddingTop': '5px','paddingBottom':'5px','paddingLeft':'10px','paddingRight':'10px','borderRadius': '20px','position':'absolute','color': 'green', 'backgroundColor': hoveredDraggableId? hoveredDraggableId == draggable.id? '#ddd' : 'white' : 'white', 'border': '1px solid black'}}>{index + 1}</container>
                                         })
                                     }
                                 </div>
