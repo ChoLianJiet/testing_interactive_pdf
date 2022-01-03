@@ -11,4 +11,6 @@ const UploadCSVPage = () => {
     )
 }
 
-export default withProtected(UploadCSVPage)
+export default UploadCSVPage
+
+// export default withProtected(UploadCSVPage)

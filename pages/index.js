@@ -20,6 +20,9 @@ export default function Home() {
     function goToUploadCSVPage () {
       window.location.href='/upload_csv';
     }
+    function goToDraggablePage () {
+      window.location.href='/draggable';
+    }
 
     return (
       <>
@@ -33,6 +36,7 @@ export default function Home() {
           {/* <UploadImageWithData /> */}
           <GetPumps/>
           <button onClick={goToUploadCSVPage}>Upload CSV</button>
+          <button onClick={goToDraggablePage}>Draggable</button>
           {/* <LogoutButton /> */}
         </container>  
       </>
