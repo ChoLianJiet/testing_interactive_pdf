@@ -354,7 +354,7 @@ function AddImages () {
                             {images.length == 0? 
                                 <></> : 
                                 images[imageIndex].data.map((draggable,index)=>{
-                                    return <Draggable id={draggable.id} key={draggable.id}  onStart={onDragStart} 
+                                    return <Draggable bounds='parent' id={draggable.id} key={draggable.id}  onStart={onDragStart} 
                                         onDrag={(event,data)=>{
                                             onDrag(index,event,data)
                                         }} onStop={(event,data)=>{
