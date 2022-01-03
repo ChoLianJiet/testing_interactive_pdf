@@ -337,7 +337,7 @@ function AddImages () {
             <div styles={{'flexDirection': 'column'}}>
                 <h1>Part Number: {dataSnapshot.data().name}</h1>
                 <div style={{display:'flex',flexDirection: "row"}}>
-                    <a className={styles['add-image']} alt="snowballContainer" id="snowballContainer" style={images.length != 0?{overflow: 'hidden', 'position': 'relative', }:{'position': 'relative',  'flex': '1'}} onMouseDown={(event)=>{
+                    <a className={styles['add-image']} alt="snowballContainer" id="snowballContainer" style={images.length != 0?{overflow: 'hidden', 'position': 'relative', }:{'position': 'relative'}} onMouseDown={(event)=>{
                             // console.log('can drag: ' + allowAddDraggables)
                             if(images.length != 0 && allowAddDraggables == true){
                                 console.log('create draggable')
