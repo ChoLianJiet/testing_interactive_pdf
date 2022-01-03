@@ -35,8 +35,7 @@ import * as XLSX from 'xlsx';
 //     )
 // }
 
-const UploadCSV = ({auth}) => {
-    const {user} = auth
+const UploadCSV = () => {
     const [columns, setColumns] = useState([]);
     const [data, setData] = useState([]);
     const [loading,setLoading] = useState(false)

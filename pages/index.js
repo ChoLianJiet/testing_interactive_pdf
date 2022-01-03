@@ -33,7 +33,7 @@ export default function Home() {
           {/* <UploadImageWithData /> */}
           <GetPumps/>
           <button onClick={goToUploadCSVPage}>Upload CSV</button>
-          <LogoutButton />
+          {/* <LogoutButton /> */}
         </container>  
       </>
     )

@@ -2,11 +2,11 @@ import UploadCSV from "../components/cloudFirestore/UploadCSV";
 import firebase from 'firebase/compat/app'
 import {withProtected} from '../firebase/routes'
 
-const UploadCSVPage = ({auth}) => {
+const UploadCSVPage = () => {
 
     return (
         <>
-            <UploadCSV auth={auth}/>
+            <UploadCSV/>
         </>
     )
 }
