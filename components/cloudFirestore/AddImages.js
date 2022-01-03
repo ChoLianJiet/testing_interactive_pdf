@@ -333,7 +333,10 @@ function AddImages () {
 
     return dataSnapshot.exists == false?
         <>Part Number does not exists</> :
-        (       
+        (uploadSuccess?
+            <p>Upload Successful!</p> :
+                uploadHasError?
+                    <p>{errorMessage}</p> :
             <div styles={{'flexDirection': 'column'}}>
                 <h1>Part Number: {dataSnapshot.data().name}</h1>
                 <div style={{display:'flex',flexDirection: "row"}}>
